@@ -4,3 +4,6 @@ Finished at: 15-Jan-2023, 04:39:54
 The function "div" has been executed 30000000 times during 4.1607277393341064s.
 Started at: 15-Jan-2023, 04:57:25
 Finished at: 15-Jan-2023, 04:57:29
+The function "div" has been executed 30000000 times during 4.20749831199646s.
+Started at: 15-Jan-2023, 09:03:03
+Finished at: 15-Jan-2023, 09:03:07

@@ -1,8 +1,16 @@
+"""This module provide access to f-decorators"""
+
 from typing import Callable
+from typing import Any
 import time
 
 
-def decor_count(func):
+def decor_count(func: Callable[[Any], Any]) -> int:
+    """
+    Return number of calls of func.
+
+    :param func: Callable object this function apply to.
+    """
 
     count_call = 0
 
@@ -17,7 +25,12 @@ def decor_count(func):
 decorated_functions = []
 
 
-def decor_reg(func):
+def decor_reg(func: Callable[[Any], Any]) -> Any:
+    """
+    Add reference of func to decorated_functions list.
+
+    :param func: Callable object this function apply to.
+    """
 
     def inner_reg(*args, **kwargs):
         decorated_functions.append(func)
@@ -26,7 +39,12 @@ def decor_reg(func):
     return inner_reg
 
 
-def decor_str(method):
+def decor_str(method: Callable[[object], str]) -> str:
+    """
+    Call a method and write a result into txt file named the same as the Callable argument (object).
+
+    :param method: Callable object this function apply to.
+    """
 
     def inner_str(self, *args, **kwargs):
 
@@ -39,9 +57,15 @@ def decor_str(method):
     return inner_str
 
 
-def timing(n: int, file: str):
+def timing(n: int, file: str) -> str:
+    """
+    Write timing of definite quantity of execution of callable into txt file.
 
-    def time_decor(func):
+    :param n: Quantity of executions.
+    :param file: Name of the txt file.
+    """
+
+    def time_decor(func: Callable[[Any], Any]) -> Any:
 
         def time_inner(*args, **kwargs):
 
