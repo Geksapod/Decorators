@@ -1,7 +1,6 @@
 """This module provide access to f-decorators"""
 
-from typing import Callable
-from typing import Any
+from typing import Callable, Any
 import time
 
 
@@ -17,7 +16,7 @@ def decor_count(func: Callable[[Any], Any]) -> int:
     def inner_count(*args, **kwargs):
         nonlocal count_call
         count_call += 1
-        return count_call
+        return func(*args, **kwargs), count_call
 
     return inner_count
 
@@ -48,11 +47,12 @@ def decor_str(method: Callable[[object], str]) -> str:
 
     def inner_str(self, *args, **kwargs):
 
+        res = method(self)
         file_name = f"{type(self).__name__}.txt"
-        with open(file_name, "w") as f:
-            f.write(method(self))
+        with open(file_name, "a") as f:
+            f.write(res)
 
-        return method(self)
+        return res
 
     return inner_str
 

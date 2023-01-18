@@ -1,7 +1,6 @@
 """This module provide access to c-decorators"""
 
-from typing import Callable
-from typing import Any
+from typing import Callable, Any
 
 
 class DecoratorReg:

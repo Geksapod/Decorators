@@ -50,6 +50,7 @@ if __name__ == "__main__":
 
 
     task_1 = Task3()
+    # print(task_1)
     print(f"See file \"{type(task_1).__name__}.txt\"")
 
     # Task 4
@@ -58,11 +59,11 @@ if __name__ == "__main__":
 
     task_4_name_file = "Task4.txt"
 
-    @fd.timing(30_000_000, task_4_name_file)
-    def div(a, b):
-        return a / b
-
-    div(5, 2)
+    # @fd.timing(30_000_000, task_4_name_file)
+    # def div(a, b):
+    #     return a / b
+    #
+    # div(5, 2)
 
     print(f"See file \"{task_4_name_file}\"")
     print("-"*60)
