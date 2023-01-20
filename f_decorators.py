@@ -4,6 +4,7 @@ from typing import Callable, Any
 import time
 
 func_call_num = {}
+func_call = 0
 
 
 def decor_count(func: Callable[[Any], Any]) -> Any:
@@ -16,9 +17,9 @@ def decor_count(func: Callable[[Any], Any]) -> Any:
     def inner_count(*args, **kwargs):
 
         func_name = func.__name__
+        global func_call
 
         if func_name not in func_call_num:
-            global func_call
             func_call = 1
             func_call_num[func_name] = func_call
         else:

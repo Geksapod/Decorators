@@ -15,7 +15,11 @@ if __name__ == "__main__":
     def add(a, b):
         return a + b
 
-    print(add(1, 2), add(2, 5), add(7, 10), sep=", ")
+    @fd.decor_count
+    def sub(a, b):
+        return a - b
+
+    print(add(1, 2), add(2, 5), add(7, 10), sub(7, 10), sep=", ")
     print(fd.func_call_num)
 
     # Task 2
