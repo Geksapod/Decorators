@@ -16,6 +16,7 @@ if __name__ == "__main__":
         return a + b
 
     print(add(1, 2), add(2, 5), add(7, 10), sep=", ")
+    print(fd.func_call_num)
 
     # Task 2
 
@@ -59,11 +60,11 @@ if __name__ == "__main__":
 
     task_4_name_file = "Task4.txt"
 
-    # @fd.timing(30_000_000, task_4_name_file)
-    # def div(a, b):
-    #     return a / b
-    #
-    # div(5, 2)
+    @fd.timing(30_000_000, task_4_name_file)
+    def div(a, b):
+        return a / b
+
+    div(5, 2)
 
     print(f"See file \"{task_4_name_file}\"")
     print("-"*60)
@@ -108,8 +109,9 @@ if __name__ == "__main__":
             return f"This is the class {self.name}"
 
     test_3 = Test3("Test No.3")
-
     print(test_3)
+    # test_3.name = ""
+    # print(test_3)
 
     # Task 3
 

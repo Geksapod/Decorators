@@ -3,20 +3,29 @@
 from typing import Callable, Any
 import time
 
+func_call_num = {}
 
-def decor_count(func: Callable[[Any], Any]) -> int:
+
+def decor_count(func: Callable[[Any], Any]) -> Any:
     """
     Return number of calls of func.
 
     :param func: Callable object this function apply to.
     """
 
-    count_call = 0
-
     def inner_count(*args, **kwargs):
-        nonlocal count_call
-        count_call += 1
-        return func(*args, **kwargs), count_call
+
+        func_name = func.__name__
+
+        if func_name not in func_call_num:
+            global func_call
+            func_call = 1
+            func_call_num[func_name] = func_call
+        else:
+            func_call += 1
+            func_call_num[func_name] = func_call
+
+        return func(*args, **kwargs)
 
     return inner_count
 
@@ -45,7 +54,7 @@ def decor_str(method: Callable[[object], str]) -> str:
     :param method: Callable object this function apply to.
     """
 
-    def inner_str(self, *args, **kwargs):
+    def inner_str(self: object, *args, **kwargs):
 
         res = method(self)
         file_name = f"{type(self).__name__}.txt"
