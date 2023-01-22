@@ -20,7 +20,7 @@ if __name__ == "__main__":
         return a - b
 
     print(add(1, 2), add(2, 5), add(7, 10), sub(7, 10), sep=", ")
-    print(fd.func_call_num)
+    print(add.func_call, sub.func_call, sep=", ")
 
     # Task 2
 
@@ -114,8 +114,6 @@ if __name__ == "__main__":
 
     test_3 = Test3("Test No.3")
     print(test_3)
-    # test_3.name = ""
-    # print(test_3)
 
     # Task 3
 
